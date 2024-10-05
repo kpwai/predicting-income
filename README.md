@@ -48,3 +48,17 @@ git clone <repository-url>
 cd <repository-directory>
 pip install -r requirements.txt
 ```
+
+## Usage
+After installing the dependencies, you can run the Python file to preprocess the data, train the neural network model, evaluate its performance, and generate explainability visualizations using LIME.
+```bash
+python NN_adult_lime.py
+```
+
+## Results
+The neural network classifier achieved decent accuracy in predicting income levels.
+LIME was used to provide local explanations for individual predictions, offering insight into how the neural network made its decisions for a specific instance.
+
+## Future Work
+Implement more advanced models like Random Forest or XGBoost for potentially better accuracy.
+Explore hyperparameter tuning and deeper feature engineering to further optimize performance.
