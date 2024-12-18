@@ -3,7 +3,7 @@ name: Deploy to Hugging Face Space
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on pushes to the main branch
 
 jobs:
   deploy:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # This checks out the code from GitHub repo
+        uses: actions/checkout@v2  # Checkout the repository code
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -21,15 +21,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Install dependencies
-
-      - name: Configure Git user
-        run: |
-          git config --global user.name "kpwai"
-          git config --global user.email "khaingphyowai.mm@gmail.com"
+          pip install -r requirements.txt  # Install Python dependencies
 
       - name: Push to Hugging Face Space
         run: |
-          # Setting the remote URL for Hugging Face Space
           git remote set-url origin https://huggingface.co/spaces/kpwai/Income-Prediction
-          git push origin main  # Push changes to Hugging Face Space
+          git push origin main  # Push code to Hugging Face Space
